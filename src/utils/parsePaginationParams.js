@@ -3,11 +3,7 @@ const parseNumber = (number, defaultValue) => {
   if (!isString) return defaultValue;
 
   const parsedNumber = parseInt(number);
-  if (Number.isNaN(parsedNumber)) {
-    return defaultValue;
-  }
-
-  return parsedNumber;
+  return Number.isNaN(parsedNumber) ? defaultValue : parsedNumber;
 };
 
 export const parsePaginationParams = (query) => {
