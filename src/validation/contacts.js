@@ -1,6 +1,7 @@
 import { possibleContactTypes } from '../utils/possibleContactTypes.js';
 import BaseJoi from 'joi';
 import JoiPhoneNumber from 'joi-phone-number';
+import { isValidObjectId } from 'mongoose';
 
 const Joi = BaseJoi.extend(JoiPhoneNumber);
 
@@ -12,6 +13,12 @@ export const createContactSchema = Joi.object({
     .valid(...possibleContactTypes)
     .required(),
   isFavorite: Joi.boolean(),
+  userId: Joi.string().custom((value, helper) => {
+    if (value && !isValidObjectId(value)) {
+      return helper.message('User id should be a valid mongo id');
+    }
+    return true;
+  }),
 });
 
 export const updateContactSchema = Joi.object({

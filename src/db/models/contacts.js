@@ -3,6 +3,10 @@ import { possibleContactTypes } from '../../utils/possibleContactTypes.js';
 
 const contactsSchema = new Schema(
   {
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'users',
+    },
     name: {
       type: String,
       required: true,
