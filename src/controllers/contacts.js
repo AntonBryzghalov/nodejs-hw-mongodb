@@ -57,7 +57,7 @@ export const getContactByIdController = async (req, res) => {
 };
 
 export const createContactController = async (req, res) => {
-  const photoUrl = trySavePhoto(req);
+  const photoUrl = await trySavePhoto(req);
   const contact = await createContact(
     { ...req.body, photo: photoUrl },
     req.user._id,
@@ -83,7 +83,7 @@ export const deleteContactController = async (req, res, next) => {
 
 export const upsertContactController = async (req, res, next) => {
   const { contactId } = req.params;
-  const photoUrl = trySavePhoto(req);
+  const photoUrl = await trySavePhoto(req);
   const result = await updateContact(
     contactId,
     req.user._id,
@@ -107,7 +107,7 @@ export const upsertContactController = async (req, res, next) => {
 
 export const patchContactController = async (req, res, next) => {
   const { contactId } = req.params;
-  const photoUrl = trySavePhoto(req);
+  const photoUrl = await trySavePhoto(req);
 
   const result = await updateContact(contactId, req.user._id, {
     ...req.body,
