@@ -133,9 +133,9 @@ const trySavePhoto = async (req) => {
 
   if (photo) {
     if (getEnvVar('ENABLE_CLOUDINARY') === 'true') {
-      photoUrl = await saveFileToCloudinary(photo);
+      return await saveFileToCloudinary(photo);
     } else {
-      photoUrl = await saveFileToUploadDir(photo);
+      return await saveFileToUploadDir(photo);
     }
   }
 };
