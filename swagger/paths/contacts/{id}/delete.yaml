@@ -1,7 +1,7 @@
 tags:
   - Contacts
 summary: Remove contact by ID
-operationId: patchContact
+operationId: deleteContact
 description: 'Removes a contact with specified ID'
 security:
   - bearerAuth: []

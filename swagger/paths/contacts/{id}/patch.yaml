@@ -19,6 +19,10 @@ requestBody:
         type: object
         properties:
           $ref: '../../../components/schemas/contactCommonProperties.yaml'
+        photo:
+          description: "Contact's photo"
+          type: string
+          format: binary
 responses:
   '200':
     description: Modifies a contact with specified ID
