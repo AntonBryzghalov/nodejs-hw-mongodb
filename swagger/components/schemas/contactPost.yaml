@@ -1,0 +1,8 @@
+type: object
+required:
+  - userId
+  - name
+  - phoneNumber
+  - contactType
+properties:
+  $ref: './contactCommonProperties.yaml'

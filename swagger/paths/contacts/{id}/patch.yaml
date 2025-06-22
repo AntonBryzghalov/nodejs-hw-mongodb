@@ -1,0 +1,46 @@
+tags:
+  - Contacts
+summary: Modify contact by ID
+operationId: patchContact
+description: 'Modifies a contact with specified ID'
+security:
+  - bearerAuth: []
+parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+      example: '68208bbd7f0431e5d622598e'
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        properties:
+          $ref: '../../../components/schemas/contactCommonProperties.yaml'
+responses:
+  '200':
+    description: Modifies a contact with specified ID
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: Successfully patched a contact!
+            data:
+              type: object
+              $ref: '../../../components/schemas/contact.yaml'
+  '401':
+    $ref: '../../../components/responses/401.yaml'
+  '404':
+    $ref: '../../../components/responses/404.yaml'

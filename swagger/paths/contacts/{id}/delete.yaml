@@ -1,0 +1,19 @@
+tags:
+  - Contacts
+summary: Remove contact by ID
+operationId: patchContact
+description: 'Removes a contact with specified ID'
+security:
+  - bearerAuth: []
+parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+      example: '68208bbd7f0431e5d622598e'
+responses:
+  '204':
+    description: Removes a contact with specified ID
+  '404':
+    $ref: '../../../components/responses/404.yaml'

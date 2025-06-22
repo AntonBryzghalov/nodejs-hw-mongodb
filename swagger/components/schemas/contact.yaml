@@ -1,0 +1,23 @@
+type: object
+required:
+  - _id
+  - userId
+  - name
+  - phoneNumber
+  - contactType
+properties:
+  _id:
+    description: "Contact's id"
+    type: string
+    example: 65e4decdd286b30065d54af9
+  $ref: './contactCommonProperties.yaml'
+  createdAt:
+    description: 'Timestamp of creation'
+    type: string
+    format: date-time
+    example: '2024-06-22T10:00:00.000Z'
+  updatedAt:
+    description: 'Timestamp of last update'
+    type: string
+    format: date-time
+    example: '2024-06-22T10:30:00.000Z'
